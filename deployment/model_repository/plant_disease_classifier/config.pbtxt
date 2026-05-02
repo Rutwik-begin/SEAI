@@ -1,0 +1,32 @@
+name: "plant_disease_classifier"
+
+backend: "onnxruntime"
+
+default_model_filename: "plant_disease_classifier.onnx"
+
+max_batch_size: 8
+
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP32
+    dims: [ 3, 224, 224 ]
+  }
+]
+
+output [
+  {
+    name: "output"
+    data_type: TYPE_FP32
+    dims: [ 38 ]
+  }
+]
+
+dynamic_batching { }
+
+instance_group [
+  {
+    kind: KIND_GPU
+    count: 1
+  }
+]

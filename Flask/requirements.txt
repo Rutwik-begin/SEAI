@@ -1,0 +1,6 @@
+﻿flask
+numpy
+pillow
+tritonclient[http]
+google-genai
+python-dotenv
